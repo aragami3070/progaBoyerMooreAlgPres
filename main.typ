@@ -1,0 +1,190 @@
+#import "@preview/touying:0.5.5": *
+#import themes.university: *
+#import "@preview/cetz:0.3.1"
+#import "@preview/fletcher:0.5.3" as fletcher: node, edge
+#import "@preview/ctheorems:1.1.3": *
+#import "@preview/numbly:0.1.0": numbly
+
+// cetz and fletcher bindings for touying
+#let cetz-canvas = touying-reducer.with(reduce: cetz.canvas, cover: cetz.draw.hide.with(bounds: true))
+#let fletcher-diagram = touying-reducer.with(reduce: fletcher.diagram, cover: fletcher.hide)
+
+// Theorems configuration by ctheorems
+#show: thmrules.with(qed-symbol: $square$)
+#let theorem = thmbox("theorem", "Theorem", fill: rgb("#eeffee"))
+#let corollary = thmplain(
+  "corollary",
+  "Corollary",
+  base: "theorem",
+  titlefmt: strong
+)
+#let definition = thmbox("definition", "Definition", inset: (x: 1.2em, top: 1em))
+#let example = thmplain("example", "Example").with(numbering: none)
+#let proof = thmproof("proof", "Proof")
+
+#show: university-theme.with(
+  aspect-ratio: "16-9",
+  // align: horizon,
+  // config-common(handout: true),
+  config-info(
+    title: [Поиск подстроки в строке Алгоритм Бойера-Мура],
+    // subtitle: [Subtitle],
+    author: [Смирнов Егор],
+    // date: datetime.today(),
+    institution: [СГУ КНиИТ 251гр],
+    // logo: emoji.school,
+  ),
+)
+
+#set heading(numbering: numbly("{1}.", default: "1.1"))
+
+#title-slide()
+
+// == Outline <touying:hidden>
+//
+// #components.adaptive-columns(outline(title: none, indent: 1em))
+
+= Алгоритм Бойера-Мура
+
+== Принцип работы алгоритма
+
+#v(50pt)
+#set text(size: 30pt)
+#align(center)[
+	*В алгоритме Бойера-Мура есть два правила*
+]
+- Правило плохого символа (эврстика стоп символа)
+- Правило хорошего суфуфикса (эвристика совпавшего символа)
+
+Далее под $quote.angle.l$шаблоном$quote.angle.r$ будем понимать подстроку, которую мы ищем.
+
+== Пример правила плохого символа
+#let gr(x) ={
+	text(fill: rgb("#00dd00"), weight: "bold", $#x$)
+}
+#let rd(x) ={
+	text(fill: rgb("#dd0000"), weight: "bold", $#x$)
+}
+#let bl(x) ={
+	text(fill: rgb("#0000dd"), weight: "bold", $#x$)
+}
+
+#let eq1() = {
+	alternatives[$ #h(150pt)
+
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	rd(A) #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+
+	$ $ #h(-165pt)
+
+	bl(A) #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)]
+	rd(C) #[#h(-33pt) #square(size: 35pt)]
+	$][]
+}
+#let eq2() = {
+	alternatives[$ #h(150pt)
+
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+
+	$ $ #h(45pt)
+
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)]
+	$][]
+}
+#let eq3() = {
+	alternatives[$ #h(330pt)
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+
+	$ $ #h(-89pt)
+
+	A #[#h(-3pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)]
+	$][]
+}
+#v(130pt)
+#for value in (1, 2, 3) {
+	if value == 1 {
+		eq1()
+	}
+	if value == 2 {
+		v(-142pt)
+		eq2()
+	}
+	if value == 3 {
+		v(-142pt)
+		eq3()
+	}
+	pause
+}
+
+// == Fletcher Animation
+//
+// Fletcher Animation in Touying:
+//
+// #fletcher-diagram(
+//   node-stroke: .1em,
+//   node-fill: gradient.radial(blue.lighten(80%), blue, center: (30%, 20%), radius: 80%),
+//   spacing: 4em,
+//   edge((-1,0), "r", "-|>", `open(path)`, label-pos: 0, label-side: center),
+//   node((0,0), `reading`, radius: 2em),
+//   edge((0,0), (0,0), `read()`, "--|>", bend: 130deg),
+//   pause,
+//   edge(`read()`, "-|>"),
+//   node((1,0), `eof`, radius: 2em),
+//   pause,
+//   edge(`close()`, "-|>"),
+//   node((2,0), `closed`, radius: 2em, extrude: (-2.5, 0)),
+//   edge((0,0), (2,0), `close()`, "-|>", bend: -40deg),
+// )
+//
+//
+//
+//
+// = Others
+//
+// == Side-by-side
+//
+// #slide(composer: (1fr, 1fr))[
+//   First column.
+// ][
+//   Second column.
+// ]
