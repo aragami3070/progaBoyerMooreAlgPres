@@ -206,6 +206,34 @@
 	][]
 }
 
+#let eq6() = {
+	alternatives[$ #h(150pt)
+
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
+	gr(C) #[#h(-33pt) #square(size: 35pt)] 
+	gr(B) #[#h(-33pt) #square(size: 35pt)] 
+	gr(C) #[#h(-33pt) #square(size: 35pt)] 
+
+	$ $ #h(465pt)
+
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
+	gr(C) #[#h(-33pt) #square(size: 35pt)]
+	gr(B) #[#h(-33pt) #square(size: 35pt)]
+	gr(C) #[#h(-33pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "ИИИИИИИ наконец-то мы нашли наш шаблон")
+	][]
+}
+
 #v(130pt)
 
 #for value in (1, 2, 3, 4, 5, 6) {
@@ -230,7 +258,7 @@
 	}
 	if value == 6 {
 		v(-230pt)
-		// eq6()
+		eq6()
 	}
 	pause
 }
