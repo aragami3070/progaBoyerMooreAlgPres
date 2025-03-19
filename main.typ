@@ -159,23 +159,23 @@
 	C #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)] 
-	rd(A) #[#h(-33pt) #square(size: 35pt)]
-	gr(B) #[#h(-33pt) #square(size: 35pt)] 
-	gr(C) #[#h(-33pt) #square(size: 35pt)] 
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	rd(B) #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	C #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	C #[#h(-33pt) #square(size: 35pt)] 
 
-	$ $ #h(115pt)
+	$ $ #h(185pt)
 
-	bl(A) #[#h(-33pt) #square(size: 35pt)]
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)]
+	bl(B) #[#h(-33pt) #square(size: 35pt)]
 	rd(C) #[#h(-33pt) #square(size: 35pt)]
-	gr(B) #[#h(-33pt) #square(size: 35pt)]
-	gr(C) #[#h(-33pt) #square(size: 35pt)]
 	$
-	#text(size:26.5pt, "A != C. Ищем стоп символ в шаблоне \nСдвигаем шаблон")
+	#text(size:26.5pt, "B != C. Ищем стоп символ в шаблоне \nСдвигаем шаблон")
 	][]
 }
 #let eq5() = {
@@ -186,21 +186,21 @@
 	C #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)] 
-	rd(A) #[#h(-33pt) #square(size: 35pt)]
-	gr(B) #[#h(-33pt) #square(size: 35pt)] 
-	gr(C) #[#h(-33pt) #square(size: 35pt)] 
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	rd(B) #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	C #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	C #[#h(-33pt) #square(size: 35pt)] 
 
-	$ $ #h(115pt)
+	$ $ #h(185pt)
 
-	bl(A) #[#h(-33pt) #square(size: 35pt)]
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)]
+	bl(B) #[#h(-33pt) #square(size: 35pt)]
 	rd(C) #[#h(-33pt) #square(size: 35pt)]
-	gr(B) #[#h(-33pt) #square(size: 35pt)]
-	gr(C) #[#h(-33pt) #square(size: 35pt)]
 	$
 	#text(size:26.5pt, "A != C. Ищем стоп символ в шаблоне \nСдвигаем шаблон")
 	][]
@@ -220,41 +220,12 @@
 		eq3()
 	}
 	if value == 4 {
-		v(-264.5pt)
-		// eq4()
+		v(-230pt)
+		eq4()
+	}
+	if value == 5 {
+		v(-230pt)
+		eq5()
 	}
 	pause
 }
-
-// == Fletcher Animation
-//
-// Fletcher Animation in Touying:
-//
-// #fletcher-diagram(
-//   node-stroke: .1em,
-//   node-fill: gradient.radial(blue.lighten(80%), blue, center: (30%, 20%), radius: 80%),
-//   spacing: 4em,
-//   edge((-1,0), "r", "-|>", `open(path)`, label-pos: 0, label-side: center),
-//   node((0,0), `reading`, radius: 2em),
-//   edge((0,0), (0,0), `read()`, "--|>", bend: 130deg),
-//   pause,
-//   edge(`read()`, "-|>"),
-//   node((1,0), `eof`, radius: 2em),
-//   pause,
-//   edge(`close()`, "-|>"),
-//   node((2,0), `closed`, radius: 2em, extrude: (-2.5, 0)),
-//   edge((0,0), (2,0), `close()`, "-|>", bend: -40deg),
-// )
-//
-//
-//
-//
-// = Others
-//
-// == Side-by-side
-//
-// #slide(composer: (1fr, 1fr))[
-//   First column.
-// ][
-//   Second column.
-// ]
