@@ -79,7 +79,7 @@
 	B #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)] 
-	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	C #[#h(-33pt) #square(size: 35pt)] 
@@ -106,7 +106,7 @@
 	B #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	rd(B) #[#h(-33pt) #square(size: 35pt)] 
-	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	C #[#h(-33pt) #square(size: 35pt)] 
@@ -129,28 +129,82 @@
 	A #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)] 
 	C #[#h(-33pt) #square(size: 35pt)] 
-	gr(A) #[#h(-33pt) #square(size: 35pt)]
-	B #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
-	rd(B) #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
+	rd(A) #[#h(-33pt) #square(size: 35pt)]
+	gr(B) #[#h(-33pt) #square(size: 35pt)] 
+	gr(C) #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	C #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	C #[#h(-33pt) #square(size: 35pt)] 
 
-	$ $ #h(45pt)
+	$ $ #h(115pt)
 
-	gr(A) #[#h(-33pt) #square(size: 35pt)]
-	C #[#h(-33pt) #square(size: 35pt)]
-	bl(B) #[#h(-33pt) #square(size: 35pt)]
+	bl(A) #[#h(-33pt) #square(size: 35pt)]
 	rd(C) #[#h(-33pt) #square(size: 35pt)]
+	gr(B) #[#h(-33pt) #square(size: 35pt)]
+	gr(C) #[#h(-33pt) #square(size: 35pt)]
 	$
-	#text(size:26.5pt, "После начинаем проверять новый срез \nОпять есть не совпадение. Ищем стоп символ в\nшаблоне. (Если такого символа нет, то сдвиг на 1)")
+	#text(size:26.5pt, "A != C. Ищем стоп символ в шаблоне \nСдвигаем шаблон")
 	][]
 }
 
+#let eq4() = {
+	alternatives[$ #h(150pt)
+
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	rd(A) #[#h(-33pt) #square(size: 35pt)]
+	gr(B) #[#h(-33pt) #square(size: 35pt)] 
+	gr(C) #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+
+	$ $ #h(115pt)
+
+	bl(A) #[#h(-33pt) #square(size: 35pt)]
+	rd(C) #[#h(-33pt) #square(size: 35pt)]
+	gr(B) #[#h(-33pt) #square(size: 35pt)]
+	gr(C) #[#h(-33pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "A != C. Ищем стоп символ в шаблоне \nСдвигаем шаблон")
+	][]
+}
+#let eq5() = {
+	alternatives[$ #h(150pt)
+
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	rd(A) #[#h(-33pt) #square(size: 35pt)]
+	gr(B) #[#h(-33pt) #square(size: 35pt)] 
+	gr(C) #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+
+	$ $ #h(115pt)
+
+	bl(A) #[#h(-33pt) #square(size: 35pt)]
+	rd(C) #[#h(-33pt) #square(size: 35pt)]
+	gr(B) #[#h(-33pt) #square(size: 35pt)]
+	gr(C) #[#h(-33pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "A != C. Ищем стоп символ в шаблоне \nСдвигаем шаблон")
+	][]
+}
 #v(130pt)
 
 #for value in (1, 2, 3, 4, 5, 6, 7) {
@@ -164,6 +218,10 @@
 	if value == 3 {
 		v(-264.5pt)
 		eq3()
+	}
+	if value == 4 {
+		v(-264.5pt)
+		// eq4()
 	}
 	pause
 }
