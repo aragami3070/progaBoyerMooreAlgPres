@@ -92,7 +92,9 @@
 	C #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)]
 	rd(C) #[#h(-33pt) #square(size: 35pt)]
-	$][]
+	$
+	#text(size:26.5pt, "Нужно переместить шаблон так, чтобы стоп символ \nс символом из шаблона (синий из шаблона и \nкрасный из строки)")
+	][]
 }
 #let eq2() = {
 	alternatives[$ #h(150pt)
@@ -103,7 +105,7 @@
 	gr(A) #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
-	B #[#h(-33pt) #square(size: 35pt)] 
+	rd(B) #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
@@ -115,17 +117,22 @@
 
 	gr(A) #[#h(-33pt) #square(size: 35pt)]
 	C #[#h(-33pt) #square(size: 35pt)]
-	B #[#h(-33pt) #square(size: 35pt)]
-	C #[#h(-33pt) #square(size: 35pt)]
-	$][]
+	bl(B) #[#h(-33pt) #square(size: 35pt)]
+	rd(C) #[#h(-33pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "После начинаем проверять новый срез \nОпять есть не совпадение. Ищем стоп символ в\nшаблоне. (Если такого символа нет, то сдвиг на 1)")
+	][]
 }
 #let eq3() = {
-	alternatives[$ #h(330pt)
+	alternatives[$ #h(150pt)
+
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
 	gr(A) #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)] 
-	C #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
-	B #[#h(-33pt) #square(size: 35pt)] 
+	rd(B) #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
@@ -133,24 +140,29 @@
 	B #[#h(-33pt) #square(size: 35pt)] 
 	C #[#h(-33pt) #square(size: 35pt)] 
 
-	$ $ #h(-89pt)
+	$ $ #h(45pt)
 
-	A #[#h(-3pt) #square(size: 35pt)]
+	gr(A) #[#h(-33pt) #square(size: 35pt)]
 	C #[#h(-33pt) #square(size: 35pt)]
-	B #[#h(-33pt) #square(size: 35pt)]
-	$][]
+	bl(B) #[#h(-33pt) #square(size: 35pt)]
+	rd(C) #[#h(-33pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "После начинаем проверять новый срез \nОпять есть не совпадение. Ищем стоп символ в\nшаблоне. (Если такого символа нет, то сдвиг на 1)")
+	][]
 }
+
 #v(130pt)
-#for value in (1, 2, 3) {
+
+#for value in (1, 2, 3, 4, 5, 6, 7) {
 	if value == 1 {
 		eq1()
 	}
 	if value == 2 {
-		v(-142pt)
+		v(-265pt)
 		eq2()
 	}
 	if value == 3 {
-		v(-142pt)
+		v(-264.5pt)
 		eq3()
 	}
 	pause
