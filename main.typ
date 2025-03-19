@@ -186,28 +186,29 @@
 	C #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
 	B #[#h(-33pt) #square(size: 35pt)] 
-	gr(A) #[#h(-33pt) #square(size: 35pt)]
-	B #[#h(-33pt) #square(size: 35pt)] 
-	C #[#h(-33pt) #square(size: 35pt)] 
-	rd(B) #[#h(-33pt) #square(size: 35pt)] 
 	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	gr(B) #[#h(-33pt) #square(size: 35pt)] 
+	rd(A) #[#h(-33pt) #square(size: 35pt)]
 	C #[#h(-33pt) #square(size: 35pt)] 
 	B #[#h(-33pt) #square(size: 35pt)] 
 	C #[#h(-33pt) #square(size: 35pt)] 
 
-	$ $ #h(185pt)
+	$ $ #h(255pt)
 
-	gr(A) #[#h(-33pt) #square(size: 35pt)]
+	bl(A) #[#h(-33pt) #square(size: 35pt)]
 	C #[#h(-33pt) #square(size: 35pt)]
-	bl(B) #[#h(-33pt) #square(size: 35pt)]
+	gr(B) #[#h(-33pt) #square(size: 35pt)]
 	rd(C) #[#h(-33pt) #square(size: 35pt)]
 	$
 	#text(size:26.5pt, "A != C. Ищем стоп символ в шаблоне \nСдвигаем шаблон")
 	][]
 }
+
 #v(130pt)
 
-#for value in (1, 2, 3, 4, 5, 6, 7) {
+#for value in (1, 2, 3, 4, 5, 6) {
 	if value == 1 {
 		eq1()
 	}
@@ -226,6 +227,10 @@
 	if value == 5 {
 		v(-230pt)
 		eq5()
+	}
+	if value == 6 {
+		v(-230pt)
+		// eq6()
 	}
 	pause
 }
