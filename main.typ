@@ -266,9 +266,63 @@
 		table.header(
 			[], [$A$], [$C$], [$B$], [$C$],
 		),
-		[A], [$0$], [$1$], [$2$], [$3$],
-		[B], [$0$], [$0$], [$0$], [$1$],
-		[C], [$0$], [$0$], [$1$], [$0$],
+		[A], [$1$], [$1$], [$2$], [$3$],
+		[B], [$1$], [$1$], [$1$], [$1$],
+		[C], [$1$], [$1$], [$1$], [$1$],
 	)
 ]
 
+== Предобработка
+#let eq6() = { $ #h(50pt)
+
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	A #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	rd(A) #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)] 
+	B #[#h(-33pt) #square(size: 35pt)] 
+	C #[#h(-33pt) #square(size: 35pt)] 
+
+	$
+	$ #h(155pt)
+
+	bl(A) #[#h(-33pt) #square(size: 35pt)]
+	C #[#h(-33pt) #square(size: 35pt)]
+	B #[#h(-33pt) #square(size: 35pt)]
+	rd(C) #[#h(-33pt) #square(size: 35pt)]
+	$
+}
+
+#align(center)[
+	#alternatives[
+		#eq6()
+		#set text(size: 40pt)
+		#table(
+			columns: 5,
+			table.header(
+				[], [$A$], [$C$], [$B$], [$C$],
+			),
+			[A], [$1$], [$1$], [$2$], [$3$],
+			[B], [$1$], [$1$], [$1$], [$1$],
+			[C], [$1$], [$1$], [$1$], [$1$],
+		)
+	][
+		#eq6()
+		#set text(size: 40pt)
+		#table(
+			columns: 5,
+			table.header(
+				[], [$A$], [$C$], [$B$], table.cell(fill: red, $C$),
+			),
+			table.cell(fill: blue, $A$), table.cell(fill: blue, $1$), table.cell(fill: blue, $1$), table.cell(fill: blue, $2$), table.cell(fill: green, $3$),
+			[B], [$1$], [$1$], [$1$], [$1$],
+			[C], [$1$], [$1$], [$1$], [$1$],
+		)
+	]
+]
