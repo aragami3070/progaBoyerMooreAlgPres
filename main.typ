@@ -410,7 +410,7 @@
 	L #[#h(-30pt) #square(size: 35pt)] 
 	L #[#h(-30pt) #square(size: 35pt)] 
 	O #[#h(-32pt) #square(size: 35pt)] 
-	K #[#h(-36.5pt) #square(size: 35pt)]
+	rd(K) #[#h(-36.5pt) #square(size: 35pt)]
 	gr(K) #[#h(-36.5pt) #square(size: 35pt)] 
 	gr(O) #[#h(-33pt) #square(size: 35pt)] 
 	gr(L) #[#h(-30pt) #square(size: 35pt)] 
@@ -424,7 +424,7 @@
 	bl(K) #[#h(-33pt) #square(size: 35pt)]
 	bl(O) #[#h(-33pt) #square(size: 35pt)] 
 	bl(L) #[#h(-30pt) #square(size: 35pt)] 
-	O #[#h(-32pt) #square(size: 35pt)]
+	rd(O) #[#h(-32pt) #square(size: 35pt)]
 	gr(K) #[#h(-36.5pt) #square(size: 35pt)]
 	gr(O) #[#h(-32pt) #square(size: 35pt)]
 	gr(L) #[#h(-30pt) #square(size: 35pt)]
@@ -508,8 +508,9 @@
 	)
 ]
 == Таблица суффиксов
-#only("1")[Для каждого возможного суффикса $t$ данного шаблона $s$ указываем наименьшую величину, на которую нужно сдвинуть вправо шаблон, чтобы он снова совпал с $t$ и при этом символ, предшествующий этому вхождению $t$ , не совпадал бы с символом, предшествующим суффиксу $t$. Если такой сдвиг невозможен, ставится $| s | = m$ (в обеих системах нумерации).] Например, для $s = a a c c b c c b c c$ будет: #pause
+#only("1")[Для каждого возможного суффикса $t$ данного шаблона $s$ указываем наименьшую величину, на которую нужно сдвинуть вправо шаблон, чтобы он снова совпал с $t$ и при этом символ, предшествующий этому вхождению $t$ , не совпадал бы с символом, предшествующим суффиксу $t$. Если такой сдвиг невозможен, ставится $| s | = m$ (в обеих системах нумерации).] Например, для $s = a a c c b c c b c c$ будет:
 #align(center)[
+	#only("2")[
 	#set text(size: 25pt)
 	#table(
 		columns: 8,
@@ -527,6 +528,205 @@
 	[колокол], [$dots$], [колокол], [колокол],
 	)
 ]
+]
+
+= Пример работы алгоритма
+== Пример
+
+
+#let eq6() = {
+	alternatives[$ #h(50pt)
+		#v(40pt)
+
+	K #[#h(-31pt) #square(size: 35pt)]
+	O #[#h(-32pt) #square(size: 35pt)] 
+	rd(K) #[#h(-36.5pt) #square(size: 35pt)] 
+	gr(O) #[#h(-32pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)] 
+	gr(O) #[#h(-32pt) #square(size: 35pt)]
+	gr(L) #[#h(-30pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)] 
+	K #[#h(-36.5pt) #square(size: 35pt)]
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-33pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-33pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+
+	$ $ #h(-295pt)
+
+	bl(K) #[#h(-33pt) #square(size: 35pt)]
+	O #[#h(-33pt) #square(size: 35pt)] 
+	rd(L) #[#h(-30pt) #square(size: 35pt)] 
+	gr(O) #[#h(-32pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)]
+	gr(O) #[#h(-32pt) #square(size: 35pt)]
+	gr(L) #[#h(-30pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "В данном случае быстрее через 'плохой символ', т.к\nмы  найдем K из начала шаблона и сразу пердвинем\n шаблон на тоже место, как и через 'суффикс'")
+	][]
+}
+#let eq7() = {
+	alternatives[$ #h(50pt)
+		#v(40pt)
+
+	K #[#h(-31pt) #square(size: 35pt)]
+	O #[#h(-32pt) #square(size: 35pt)] 
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	L #[#h(-30pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)] 
+	K #[#h(-36.5pt) #square(size: 35pt)]
+	rd(K) #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-33pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-33pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+
+	$ $ #h(-5pt)
+
+	gr(K) #[#h(-33pt) #square(size: 35pt)]
+	O #[#h(-33pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	bl(K) #[#h(-36.5pt) #square(size: 35pt)]
+	O #[#h(-32pt) #square(size: 35pt)]
+	rd(L) #[#h(-30pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "Опять выгоднее 'плохой символ', тк сдвинемся дальше")
+	][]
+}
+
+#let eq8() = {
+	alternatives[$ #h(50pt)
+		#v(40pt)
+
+	K #[#h(-31pt) #square(size: 35pt)]
+	O #[#h(-32pt) #square(size: 35pt)] 
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	L #[#h(-30pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)] 
+	K #[#h(-36.5pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-33pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-33pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+
+	$ $ #h(135pt)
+
+	K #[#h(-33pt) #square(size: 35pt)]
+	O #[#h(-33pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)]
+	O #[#h(-32pt) #square(size: 35pt)]
+	L #[#h(-30pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "Передвинули. Теперь сверяем с начала")
+	][]
+}
+#let eq9() = {
+	alternatives[$ #h(50pt)
+		#v(40pt)
+
+	K #[#h(-31pt) #square(size: 35pt)]
+	O #[#h(-32pt) #square(size: 35pt)] 
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	L #[#h(-30pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)] 
+	rd(K) #[#h(-36.5pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)] 
+	gr(O) #[#h(-33pt) #square(size: 35pt)] 
+	gr(L) #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-33pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+
+	$ $ #h(135pt)
+
+	bl(K) #[#h(-33pt) #square(size: 35pt)]
+	bl(O) #[#h(-33pt) #square(size: 35pt)] 
+	bl(L) #[#h(-30pt) #square(size: 35pt)] 
+	rd(O) #[#h(-32pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)]
+	gr(O) #[#h(-32pt) #square(size: 35pt)]
+	gr(L) #[#h(-30pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "Нашли K != O и суффикс. В данном случае выгоднее\n'суффикс', т.к. мы передвинимся к зеленой K, а не\n к красной")
+	][$ #h(50pt)
+		#v(40pt)
+
+	K #[#h(-31pt) #square(size: 35pt)]
+	O #[#h(-32pt) #square(size: 35pt)] 
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	K #[#h(-36.5pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)]
+	L #[#h(-30pt) #square(size: 35pt)] 
+	L #[#h(-30pt) #square(size: 35pt)] 
+	O #[#h(-32pt) #square(size: 35pt)] 
+	K #[#h(-36.5pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)] 
+	gr(O) #[#h(-33pt) #square(size: 35pt)] 
+	gr(L) #[#h(-30pt) #square(size: 35pt)] 
+	gr(O) #[#h(-32pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)] 
+	gr(O) #[#h(-33pt) #square(size: 35pt)] 
+	gr(L) #[#h(-30pt) #square(size: 35pt)] 
+
+	$ $ #h(420pt)
+
+	gr(K) #[#h(-33pt) #square(size: 35pt)]
+	gr(O) #[#h(-33pt) #square(size: 35pt)] 
+	gr(L) #[#h(-30pt) #square(size: 35pt)] 
+	gr(O) #[#h(-32pt) #square(size: 35pt)]
+	gr(K) #[#h(-36.5pt) #square(size: 35pt)]
+	gr(O) #[#h(-32pt) #square(size: 35pt)]
+	gr(L) #[#h(-30pt) #square(size: 35pt)]
+	$
+	#text(size:26.5pt, "Передвинули. Нашли шаблон в строке")]
+}
+#v(70pt)
+
+#for value in (1, 2, 3, 4) {
+	if value == 1 {
+		eq6()
+	}
+	if value == 2 {
+		v(-200.5pt)
+		eq7()
+	}
+	if value == 3 {
+		v(-200.5pt)
+		eq8()
+	}
+	if value == 4 {
+		v(-200.5pt)
+		eq9()
+	}
+	pause
+}
+
 
 = Код
 == Код в сделку не входил
